@@ -1,12 +1,9 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text" />
-  </div>
+  <div class="dashboard-container" />
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-
 export default {
   name: 'Dashboard',
   computed: {

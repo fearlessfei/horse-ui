@@ -23,7 +23,15 @@ const mutations = {
     state.avatar = avatar
   },
   SET_IS_SUPERUSER: (state, is_superuser) => {
-    state.is_superuser = is_superuser
+    var flag = true
+    if (typeof is_superuser === 'string') {
+      if (is_superuser === 'false') {
+        flag = false
+      }
+    } else {
+      flag = is_superuser
+    }
+    state.is_superuser = flag
   }
 }
 

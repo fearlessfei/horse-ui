@@ -51,7 +51,7 @@
             <el-form-item label="注册时间：">
               <span>{{ props.row.reg_time | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
             </el-form-item>
-            <el-form-item label="最后登录时间">
+            <el-form-item label="最后登录时间：">
               <span>{{ props.row.last_login | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
             </el-form-item>
             <el-form-item label="邮箱：">
@@ -211,6 +211,7 @@
           <el-input v-model="temp.order" />
         </el-form-item>
         <el-form-item
+          v-if="is_superuser"
           label="超级用户"
           prop="is_superuser"
         >
@@ -272,6 +273,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { getUserList, createUser, updateUser, deleteUser } from '@/api/user'
 import { getRoleList } from '@/api/role'
 import waves from '@/directive/waves' // waves directive
@@ -321,6 +323,11 @@ export default {
     parseTime(timestamp) {
       return parseTime(timestamp)
     }
+  },
+  computed: {
+    ...mapGetters([
+      'is_superuser'
+    ])
   },
   data() {
     return {

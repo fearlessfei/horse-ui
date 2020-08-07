@@ -34,7 +34,7 @@ export default {
   methods: {
     hasPermission() {
       // if is superuser
-      const is_superuser = Number(this.is_superuser)
+      const is_superuser = this.is_superuser
       if (is_superuser) {
         return true
       }
